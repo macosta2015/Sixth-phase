@@ -74,6 +74,37 @@ require('dotenv').config();
         await new Promise(resolve => setTimeout(resolve, 3000));
         console.log('Waited for 3 seconds.');
 
+        // ADDING A NEW SKETCH
+        console.log('Waiting for the Sketch button to appear...');
+        await newPage.waitForSelector('div.toolset [command-id="newSketch"]', { visible: true });
+        console.log('Sketch button found. Clicking on it...');
+        await newPage.click('div.toolset [command-id="newSketch"]');
+        console.log('Clicked on the Sketch button.');
+        console.log('Waiting 10 seconds. TESTING TOP CLICK');
+        await new Promise(resolve => setTimeout(resolve, 10000)); // Wait for 10 seconds
+        await newPage.click('div[data-id="M9bsVubdGCsYO08ys"][data-bs-original-title="Top"]');
+        console.log('Waiting 10 seconds.');
+        await new Promise(resolve => setTimeout(resolve, 10000)); // Wait for 10 seconds
+        await newPage.click('div.ns-dialog-button-ok.button-ok');
+        console.log('Waiting 10 seconds.');
+        await new Promise(resolve => setTimeout(resolve, 10000)); // Wait for 10 seconds
+
+
+
+
+
+        // await newPage.mouse.move(400, 448);
+        // console.log('Mouse moved to X:400, Y:448');
+        // await newPage.mouse.down({ button: 'right' });
+        // console.log('Right mouse button clicked and held at X:400, Y:448');
+        // await newPage.mouse.up({ button: 'right' }); // Release the right mouse button
+        // console.log('Right mouse button released.');
+
+        console.log('Waiting 10 seconds.');
+        await new Promise(resolve => setTimeout(resolve, 10000)); // Wait for 10 seconds
+
+
+
         //RIGHT CLICK OPTIONS  
         console.log('RIGHT CLICK OPTIONS:');
         await newPage.evaluate(() => {
@@ -120,12 +151,11 @@ require('dotenv').config();
         //CLICK ON THE EDIT
         console.log('CLICK ON THE EDIT:', editOptions);
 
-
-
         console.log('Setting desired rename option...');
         await new Promise(resolve => setTimeout(resolve, 5000));
 
-        // TYPE WHICH TEXT YOU WANT TO CHOSE!
+        // RIGHT CLICK 
+        //TYPE WHICH TEXT YOU WANT TO CHOSE!
         const desiredRenameOption = 'Rename'; // const desiredRenameOption = 'Rename';
         console.log('Desired rename option:', desiredRenameOption);
         await new Promise(resolve => setTimeout(resolve, 5000));
@@ -164,74 +194,12 @@ require('dotenv').config();
             await new Promise(resolve => setTimeout(resolve, 5000));
         }
 
-
         // Typing "First Sketch"
         console.log('Typing "First Sketch"...');
         await newPage.keyboard.type('First Sketch');
         await new Promise(resolve => setTimeout(resolve, 5000));
 
 
-        // console.log('Setting desired edit option...');
-        // await new Promise(resolve => setTimeout(resolve, 5000));
-        // //TYPE WHICH TEXT YOU WANT TO CHOSE!
-        // const desiredEditOption = 'Rename'; // const desiredEditOption = 'Rename';
-        // console.log('Desired edit option:', desiredEditOption);
-        // await new Promise(resolve => setTimeout(resolve, 5000));
-
-        // console.log('Searching for index of desired edit option...');
-        // await new Promise(resolve => setTimeout(resolve, 5000));
-        // const desiredEditOptionIndex = editOptions.indexOf(desiredEditOption);
-        // console.log('Index of desired edit option:', desiredEditOptionIndex);
-        // await new Promise(resolve => setTimeout(resolve, 5000));
-
-        // if (desiredEditOptionIndex !== -1) {
-        //     console.log('Desired edit option found.');
-        //     await new Promise(resolve => setTimeout(resolve, 5000));
-
-        //     console.log('Evaluating edit option element...');
-        //     const editOptionElement = await newPage.evaluateHandle((index) => {
-        //         const menuItems = document.querySelectorAll('.context-menu-item-span');
-        //         return menuItems[index];
-        //     }, desiredEditOptionIndex);
-        //     await new Promise(resolve => setTimeout(resolve, 5000));
-
-        //     if (editOptionElement) {
-        //         console.log('Edit option element found.');
-        //         await new Promise(resolve => setTimeout(resolve, 5000));
-
-        //         console.log('Clicking on edit option element...');
-        //         await editOptionElement.click();
-        //         console.log('Clicked on edit option element.');
-        //         await new Promise(resolve => setTimeout(resolve, 5000));
-        //     } else {
-        //         console.error(`${desiredEditOption} option element not found.`);
-        //         await new Promise(resolve => setTimeout(resolve, 5000));
-        //     }
-        // } else {
-        //     console.error(`${desiredEditOption} option not found.`);
-        //     await new Promise(resolve => setTimeout(resolve, 5000));
-        // }
-
-
-
-
-
-        // const desiredEditOption = 'Edit…';
-        // const desiredEditOptionIndex = editOptions.indexOf(desiredEditOption);
-        // if (desiredEditOptionIndex !== -1) {
-        //     const editOptionElement = await newPage.evaluateHandle((index) => {
-        //         const menuItems = document.querySelectorAll('.context-menu-item-span');
-        //         return menuItems[index];
-        //     }, desiredEditOptionIndex);
-
-        //     if (editOptionElement) {
-        //         await editOptionElement.click();
-        //     } else {
-        //         console.error(`${desiredEditOption} option element not found.`);
-        //     }
-        // } else {
-        //     console.error(`${desiredEditOption} option not found.`);
-        // }
 
         //COMMAND FOR SEARCHING TRANSFORM AND THEN CLICKING ON IT 
         console.log('//COMMAND FOR SEARCHING TRANSFORM AND THEN CLICKING ON IT ');
