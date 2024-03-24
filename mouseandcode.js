@@ -122,46 +122,95 @@ require('dotenv').config();
 
 
 
-        console.log('Setting desired edit option...');
-        await new Promise(resolve => setTimeout(resolve, 5000));
-        //TYPE WHICH TEXT YOU WANT TO CHOSE!
-        const desiredEditOption = 'Edit…';         // const desiredEditOption = 'Rename';
-        console.log('Desired edit option:', desiredEditOption);
+        console.log('Setting desired rename option...');
         await new Promise(resolve => setTimeout(resolve, 5000));
 
-        console.log('Searching for index of desired edit option...');
-        await new Promise(resolve => setTimeout(resolve, 5000));
-        const desiredEditOptionIndex = editOptions.indexOf(desiredEditOption);
-        console.log('Index of desired edit option:', desiredEditOptionIndex);
+        // TYPE WHICH TEXT YOU WANT TO CHOSE!
+        const desiredRenameOption = 'Rename'; // const desiredRenameOption = 'Rename';
+        console.log('Desired rename option:', desiredRenameOption);
         await new Promise(resolve => setTimeout(resolve, 5000));
 
-        if (desiredEditOptionIndex !== -1) {
-            console.log('Desired edit option found.');
+        console.log('Searching for index of desired rename option...');
+        await new Promise(resolve => setTimeout(resolve, 5000));
+        const desiredRenameOptionIndex = editOptions.indexOf(desiredRenameOption);
+        console.log('Index of desired rename option:', desiredRenameOptionIndex);
+        await new Promise(resolve => setTimeout(resolve, 5000));
+
+        if (desiredRenameOptionIndex !== -1) {
+            console.log('Desired rename option found.');
             await new Promise(resolve => setTimeout(resolve, 5000));
 
-            console.log('Evaluating edit option element...');
-            const editOptionElement = await newPage.evaluateHandle((index) => {
+            console.log('Evaluating rename option element...');
+            const renameOptionElement = await newPage.evaluateHandle((index) => {
                 const menuItems = document.querySelectorAll('.context-menu-item-span');
                 return menuItems[index];
-            }, desiredEditOptionIndex);
+            }, desiredRenameOptionIndex);
             await new Promise(resolve => setTimeout(resolve, 5000));
 
-            if (editOptionElement) {
-                console.log('Edit option element found.');
+            if (renameOptionElement) {
+                console.log('Rename option element found.');
                 await new Promise(resolve => setTimeout(resolve, 5000));
 
-                console.log('Clicking on edit option element...');
-                await editOptionElement.click();
-                console.log('Clicked on edit option element.');
+                console.log('Clicking on rename option element...');
+                await renameOptionElement.click();
+                console.log('Clicked on rename option element.');
                 await new Promise(resolve => setTimeout(resolve, 5000));
             } else {
-                console.error(`${desiredEditOption} option element not found.`);
+                console.error(`${desiredRenameOption} option element not found.`);
                 await new Promise(resolve => setTimeout(resolve, 5000));
             }
         } else {
-            console.error(`${desiredEditOption} option not found.`);
+            console.error(`${desiredRenameOption} option not found.`);
             await new Promise(resolve => setTimeout(resolve, 5000));
         }
+
+
+        // Typing "First Sketch"
+        console.log('Typing "First Sketch"...');
+        await newPage.keyboard.type('First Sketch');
+        await new Promise(resolve => setTimeout(resolve, 5000));
+
+
+        // console.log('Setting desired edit option...');
+        // await new Promise(resolve => setTimeout(resolve, 5000));
+        // //TYPE WHICH TEXT YOU WANT TO CHOSE!
+        // const desiredEditOption = 'Rename'; // const desiredEditOption = 'Rename';
+        // console.log('Desired edit option:', desiredEditOption);
+        // await new Promise(resolve => setTimeout(resolve, 5000));
+
+        // console.log('Searching for index of desired edit option...');
+        // await new Promise(resolve => setTimeout(resolve, 5000));
+        // const desiredEditOptionIndex = editOptions.indexOf(desiredEditOption);
+        // console.log('Index of desired edit option:', desiredEditOptionIndex);
+        // await new Promise(resolve => setTimeout(resolve, 5000));
+
+        // if (desiredEditOptionIndex !== -1) {
+        //     console.log('Desired edit option found.');
+        //     await new Promise(resolve => setTimeout(resolve, 5000));
+
+        //     console.log('Evaluating edit option element...');
+        //     const editOptionElement = await newPage.evaluateHandle((index) => {
+        //         const menuItems = document.querySelectorAll('.context-menu-item-span');
+        //         return menuItems[index];
+        //     }, desiredEditOptionIndex);
+        //     await new Promise(resolve => setTimeout(resolve, 5000));
+
+        //     if (editOptionElement) {
+        //         console.log('Edit option element found.');
+        //         await new Promise(resolve => setTimeout(resolve, 5000));
+
+        //         console.log('Clicking on edit option element...');
+        //         await editOptionElement.click();
+        //         console.log('Clicked on edit option element.');
+        //         await new Promise(resolve => setTimeout(resolve, 5000));
+        //     } else {
+        //         console.error(`${desiredEditOption} option element not found.`);
+        //         await new Promise(resolve => setTimeout(resolve, 5000));
+        //     }
+        // } else {
+        //     console.error(`${desiredEditOption} option not found.`);
+        //     await new Promise(resolve => setTimeout(resolve, 5000));
+        // }
 
 
 
